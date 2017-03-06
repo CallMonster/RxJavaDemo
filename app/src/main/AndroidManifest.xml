@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SimpleActivity">
+        <activity android:name=".ThreadCtrlActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -16,7 +16,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SimpleActivity" />
+        <activity android:name=".DataConvertActivity"></activity>
     </application>
 
 </manifest>

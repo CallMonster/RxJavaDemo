@@ -35,11 +35,13 @@ public class SimpleActivity extends AppCompatActivity implements View.OnClickLis
         for(int i=0;i<10;i++){
             resArr.add("第"+i+"个");
         }
+
     }
 
     int[] imgRes = new int[]{
-            R.mipmap.emoji_1f44f, R.mipmap.emoji_1f48e, R.mipmap.emoji_1f48f, R.mipmap.emoji_1f49a,
-            R.mipmap.emoji_1f49b, R.mipmap.emoji_1f49c, R.mipmap.emoji_1f49e, R.mipmap.emoji_1f60b,
+            R.mipmap.emoji_1f44f, R.mipmap.emoji_1f48e, R.mipmap.emoji_1f48f,
+            R.mipmap.emoji_1f49a, R.mipmap.emoji_1f49b, R.mipmap.emoji_1f49c,
+            R.mipmap.emoji_1f49e, R.mipmap.emoji_1f60b,
     };
 
     ArrayList<String> resArr=new ArrayList<>();
