@@ -19,7 +19,7 @@ import rx.schedulers.Schedulers;
 
 public class ThreadCtrlActivity extends AppCompatActivity implements View.OnClickListener{
     private String TAG="ThreadCtrlActivity";
-    private Button goBtn,threadBtn,convertThreadBtn;
+    private Button goBtn,threadBtn,convertThreadBtn,threadUiBtn;
     private LinearLayout parentLayout;
 
     int[] imgRes = new int[]{
@@ -42,6 +42,9 @@ public class ThreadCtrlActivity extends AppCompatActivity implements View.OnClic
 
         convertThreadBtn= (Button) findViewById(R.id.goBtn3);
         convertThreadBtn.setOnClickListener(this);
+
+        threadUiBtn= (Button) findViewById(R.id.goBtn4);
+        threadUiBtn.setOnClickListener(this);
     }
 
     @Override
@@ -137,5 +140,6 @@ public class ThreadCtrlActivity extends AppCompatActivity implements View.OnClic
                 // subscribeOn() 的位置放在哪里都可以，但它是只能调用一次。即使调用多次也只有第一次生效
                 break;
         }
+
     }
 }

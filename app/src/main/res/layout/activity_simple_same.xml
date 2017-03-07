@@ -7,53 +7,36 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.tj.chaersi.rxjavademo.ThreadCtrlActivity">
-
+    tools:context="com.tj.chaersi.rxjavademo.SimpleSameActivity">
 
     <Button
-        android:id="@+id/goBtn"
+        android:id="@+id/abtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="begin Demo"
+        android:text="just Btn"
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/goBtn2"
+        android:id="@+id/bbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/goBtn"
-        android:text="begin Thread Demo"
+        android:layout_toRightOf="@+id/abtn"
+        android:text="from Btn"
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/goBtn3"
+        android:id="@+id/cbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/goBtn2"
-        android:text="Convert Thread Demo"
+        android:layout_toRightOf="@+id/bbtn"
+        android:text="flatmap \u0026 reduce Btn"
         android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/goBtn4"
+    <TextView
+        android:id="@+id/showView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/goBtn"
-        android:visibility="gone"
-        android:text="Thread UI Demo"
-        android:textAllCaps="false" />
+        android:layout_below="@+id/abtn"
+        android:text="无数据" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/goBtn2">
-
-        <LinearLayout
-            android:id="@+id/parentLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-        </LinearLayout>
-    </ScrollView>
 </RelativeLayout>
