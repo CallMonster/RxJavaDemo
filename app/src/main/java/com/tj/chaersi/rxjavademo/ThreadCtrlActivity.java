@@ -14,11 +14,12 @@ import rx.Scheduler;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
+import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 public class ThreadCtrlActivity extends AppCompatActivity implements View.OnClickListener{
     private String TAG="ThreadCtrlActivity";
-    private Button goBtn,threadBtn;
+    private Button goBtn,threadBtn,convertThreadBtn;
     private LinearLayout parentLayout;
 
     int[] imgRes = new int[]{
@@ -38,6 +39,9 @@ public class ThreadCtrlActivity extends AppCompatActivity implements View.OnClic
 
         threadBtn= (Button) findViewById(R.id.goBtn2);
         threadBtn.setOnClickListener(this);
+
+        convertThreadBtn= (Button) findViewById(R.id.goBtn3);
+        convertThreadBtn.setOnClickListener(this);
     }
 
     @Override
@@ -62,7 +66,6 @@ public class ThreadCtrlActivity extends AppCompatActivity implements View.OnClic
 
                 break;
             case R.id.goBtn2:
-
                 Observable.create(new Observable.OnSubscribe<Integer>(){
                     @Override
                     public void call(Subscriber<? super Integer> subscriber) {
@@ -101,6 +104,37 @@ public class ThreadCtrlActivity extends AppCompatActivity implements View.OnClic
                                 parentLayout.addView(subView);
                             }
                         });
+                break;
+            case R.id.goBtn3:
+                Observable.just(1,2)
+                        .subscribeOn(Schedulers.io()).observeOn(Schedulers.newThread())
+                        .map(new Func1<Integer, String>() {
+                            @Override
+                            public String call(Integer integer) {
+                                Log.i(TAG, integer+"输出OnNext：--" + android.os.Process.myTid());
+
+                                return integer+"1";
+                            }
+                        }).subscribeOn(Schedulers.io())
+                        .map(new Func1<String, Integer>() {
+                            @Override
+                            public Integer call(String s) {
+                                Log.i(TAG, s+"输出OnNext：--" + android.os.Process.myTid());
+
+                                return Integer.parseInt(s+"1");
+                            }
+                        }).subscribeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Action1<Integer>() {
+                            @Override
+                            public void call(Integer integer) {
+                                Log.i(TAG, integer+"输出OnNext：--" + android.os.Process.myTid());
+
+                                Log.i(TAG,"最终结果："+integer);
+                            }
+                        });
+                //observeOn(),subscribeOn()均可用于改变线程
+                //observeOn()调用任意次；
+                // subscribeOn() 的位置放在哪里都可以，但它是只能调用一次。即使调用多次也只有第一次生效
                 break;
         }
     }
