@@ -7,6 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.tj.chaersi.rxjavademo.rxjava.ColorContainActivity;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Action;
@@ -16,11 +20,13 @@ import rx.functions.Func1;
 public class MainActivity extends AppCompatActivity {
     private String TAG="MainActivity";
 
+    @BindView(R.id.jump2Btn) Button jump2Btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ButterKnife.bind(this);
 
         Observable<String> mObServable=Observable.create(new Observable.OnSubscribe<String>() {
             @Override
@@ -101,6 +107,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this,LoginActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        jump2Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ColorContainActivity.startAct(MainActivity.this);
             }
         });
 

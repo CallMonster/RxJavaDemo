@@ -21,4 +21,12 @@
         android:layout_centerInParent="true"
         android:text="跳转到登录" />
 
+    <Button
+        android:id="@+id/jump2Btn"
+        android:layout_below="@+id/jumpBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="跳转到Color Contain" />
+
 </RelativeLayout>
