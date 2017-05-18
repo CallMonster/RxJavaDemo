@@ -23,6 +23,9 @@ import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.subscriptions.CompositeSubscription;
 
+/**
+ * button 点击demo
+ */
 public class ButtonDemoActivity extends RxAppCompatActivity {
     private String TAG="ButtonDemoActivity";
     @BindView(R.id.mBtn) Button mBtn;
